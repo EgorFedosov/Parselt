@@ -3,10 +3,8 @@
 *.user
 *.userosscache
 *.sln.docstates
-Backend/[Dd]ebug/
-Backend/[Rr]elease/
-Backend/[Bb]in/
-Backend/[Oo]bj/
+Backend/Backend/bin/
+Backend/obj/
 Backend/packages/
 Backend/*.nupkg
 Backend/project.lock.json
