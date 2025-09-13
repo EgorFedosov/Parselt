@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  frontend:
+    image: egorfedosov/parselt-frontend:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    image: egorfedosov/parselt-backend:latest
+    ports:
+      - "7108:7108"
+    environment:
+      - ASPNETCORE_URLS=http://+:7108
+      - DOTNET_RUNNING_IN_CONTAINER=true
+      - ConnectionStrings__DefaultConnection=Server=db,1433;Database=ParseltDb;User Id=SA;Password=sdfDL894!jlk;TrustServerCertificate=True
+    depends_on:
+      - db
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    environment:
+      SA_PASSWORD: "sdfDL894!jlk"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+
