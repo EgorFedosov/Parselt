@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
+
+COPY Backend.sln ./
+COPY Backend/*.csproj ./Backend/
+RUN dotnet restore Backend/Backend.csproj
+
+COPY Backend/. ./Backend/
+RUN dotnet publish Backend/Backend.csproj -c Release -o out
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app/out ./
+
+EXPOSE 7108 
+
+ENTRYPOINT ["dotnet", "Backend.dll"]

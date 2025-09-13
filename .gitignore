@@ -1,0 +1,13 @@
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+Backend/Backend/bin/
+Backend/Backend/obj/
+Backend/packages/
+Backend/*.nupkg
+Backend/project.lock.json
+.idea/
+Frontend/vite/node_modules/
+Frontend/vite/dist/ 
