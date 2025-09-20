@@ -57,7 +57,6 @@
 
 Требуется установленный **Docker** и **Docker Compose**.
 
-### Linux / macOS
 
 ```bash
 git clone https://github.com/EgorFedosov/Parselt.git
